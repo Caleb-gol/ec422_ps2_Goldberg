@@ -29,7 +29,6 @@ unemp <- unemp_raw |>
     )
   )
 
-
 unemp <- unemp |>
   arrange(region, date) |>
   group_by(region) |>
@@ -52,3 +51,17 @@ unemp_recent <- unemp |>
   filter(date >= ("2015-01-01"))
 head(unemp_recent)
 
+unemp_summary <- unemp |>
+  group_by(region) |>
+  summarize(
+    mean_rate = mean(unemployment_rate, na.rm = TRUE),
+    min_rate  = min(unemployment_rate,  na.rm = TRUE),
+    max_rate  = max(unemployment_rate,  na.rm = TRUE)
+  )
+unemp_recent_summary <- unemp_recent |>
+  group_by(region) |>
+  summarize(
+    mean_rate = mean(unemployment_rate, na.rm = TRUE),
+    min_rate  = min(unemployment_rate,  na.rm = TRUE),
+    max_rate  = max(unemployment_rate,  na.rm = TRUE)
+  )
