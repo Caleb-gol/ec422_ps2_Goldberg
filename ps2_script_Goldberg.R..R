@@ -43,4 +43,12 @@ unemp <- unemp |>
   ungroup()
 
 unemp <- unemp |>
-  arrange()
+  arrange(region, date) |>
+  group_by(region) |>
+  mutate(unemployment_rate_change = unemployment_rate - lag(unemployment_rate)) |>
+  ungroup()
+
+unemp_recent <- unemp |>
+  filter(date >= ("2015-01-01"))
+head(unemp_recent)
+
