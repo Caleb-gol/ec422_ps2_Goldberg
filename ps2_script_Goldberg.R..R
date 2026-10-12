@@ -29,6 +29,7 @@ unemp <- unemp_raw |>
     )
   )
 
+
 unemp <- unemp |>
   arrange(region, date) |>
   group_by(region) |>
