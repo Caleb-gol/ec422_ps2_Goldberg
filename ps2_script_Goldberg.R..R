@@ -110,3 +110,7 @@ ggplot(unemp, aes(x = date, y = unemployment_rate, color = region )) +
 ggplot(unemp, aes(x =date, y = unemployment_rate)) +
   geom_line() +
   facet_wrap(~ region)
+
+ggplot(unemp_summary, aes(x = region, y = mean_rate, color = region, fct_reorder() )) +
+  geom_col() +
+  labs(title = "Mean unemployment rate by region", x = "Region", y = "Mean unemployment %")
