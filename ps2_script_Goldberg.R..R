@@ -114,3 +114,13 @@ ggplot(unemp, aes(x =date, y = unemployment_rate)) +
 ggplot(unemp_summary, aes(x = region, y = mean_rate, color = region, fct_reorder() )) +
   geom_col() +
   labs(title = "Mean unemployment rate by region", x = "Region", y = "Mean unemployment %")
+
+unemp |>
+  filter(
+    region == "Oregon",
+    date >= as.Date("2022-01-01"),
+    date <= as.Date("2026-01-01")
+  ) |>
+  ggplot(aes(x = date, y = unemployment_rate))+
+  geom_line() +
+  labs(title = "Unemployment rate in Oregon 2022-2026", x = "Date", y = "Unemployment rate")
