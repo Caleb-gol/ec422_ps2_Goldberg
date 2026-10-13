@@ -101,3 +101,12 @@ unemp_top_decreases_no_covid <- unemp |>
   )
 
 unemp_top_decreases_no_covid
+
+ggplot(unemp, aes(x = date, y = unemployment_rate, color = region )) +
+  geom_line() +
+  labs(title = "Unemployment Rate", x = "Date", y = "Unemployment") +
+  theme_minimal()
+
+ggplot(unemp, aes(x =date, y = unemployment_rate)) +
+  geom_line() +
+  facet_wrap(~ region)
