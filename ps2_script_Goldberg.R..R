@@ -1,6 +1,6 @@
 library(tidyquant)
 library(tidyverse)
-
+install.packages("knitr")
 unemp_raw <- tq_get(
   c("UNRATE", "ORUR", "CAUR", "TXUR", "NYUR"),
   get  = "economic.data",
